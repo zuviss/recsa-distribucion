@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="RECSA Distribución · Operación logística de última milla en Chile y servicios BPO de contact center, televentas y marketing digital para toda Latinoamérica." />
+<title>RECSA Distribución · Logística última milla y BPO multicanal en LATAM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1C0D0A;
+  background: #FFFFFF;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color .2s ease; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+:root {
+  --orange: #FF6210;
+  --orange-dark: #F15808;
+  --orange-deeper: #D94A04;
+  --dark: #1C0D0A;
+  --dark-2: #140B06;
+  --neutral: #353535;
+  --muted: #6B5E58;
+  --cream: #FEF1E4;
+  --beige: #E5D7D1;
+  --light: #FAF6F3;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(28,13,10,.06);
+  --shadow-md: 0 8px 24px rgba(28,13,10,.08);
+  --shadow-lg: 0 20px 48px rgba(28,13,10,.12);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.2; color: var(--dark); }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -.02em; }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.01em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.4rem); }
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 100px 0; }
+.section-cream { background: var(--cream); }
+.section-dark { background: var(--dark); color: #F5EEEA; }
+.section-dark h2, .section-dark h3 { color: #FFFFFF; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.section-dark .eyebrow { color: #FFB17A; }
+
+.section-head { max-width: 720px; margin: 0 auto 64px; text-align: center; }
+.section-head p { color: var(--muted); font-size: 1.1rem; margin-top: 14px; }
+.section-dark .section-head p { color: #D9C9C0; }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: all .25s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255,98,16,.32);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--dark);
+  border: 1.5px solid var(--dark);
+}
+.btn-ghost:hover {
+  background: var(--dark);
+  color: var(--white);
+}
+.btn-light {
+  background: var(--white);
+  color: var(--dark);
+}
+.btn-light:hover {
+  background: var(--cream);
+}
+.btn-outline-light {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.5);
+}
+.btn-outline-light:hover {
+  background: rgba(255,255,255,.1);
+  border-color: var(--white);
+}
+.btn .arrow { transition: transform .25s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ============ HEADER ============ */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid rgba(28,13,10,.06);
+  transition: all .3s ease;
+}
+.header.scrolled {
+  box-shadow: 0 4px 16px rgba(28,13,10,.06);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--dark);
+}
+.logo-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deeper));
+  border-radius: 10px;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -.02em;
+  box-shadow: 0 6px 14px rgba(255,98,16,.25);
+}
+.logo-sub { display: block; font-size: .72rem; font-weight: 500; color: var(--muted); letter-spacing: .04em; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .92rem;
+  font-weight: 500;
+  color: var(--dark);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: var(--orange);
+  transition: width .25s ease;
+}
+.nav-links a:hover { color: var(--orange); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta { display: flex; align-items: center; gap: 12px; }
+.nav-cta .btn { padding: 10px 20px; font-size: .88rem; }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+.menu-toggle span {
+  width: 24px; height: 2px;
+  background: var(--dark);
+  transition: all .25s ease;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  padding: 160px 0 100px;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,98,16,.15) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(241,88,8,.08) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255,98,16,.1);
+  border-radius: 50px;
+  color: var(--orange-deeper);
+  font-size: .82rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.2); } }
+
+.hero h1 span.accent {
+  color: var(--orange);
+  position: relative;
+  display: inline-block;
+}
+.hero h1 span.accent::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 4px;
+  width: 100%; height: 10px;
+  background: rgba(255,98,16,.2);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin: 24px 0 36px;
+  max-width: 540px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.trust-item svg { color: var(--orange); flex-shrink: 0; }
+
+.hero-visual {
+  position: relative;
+  min-height: 500px;
+}
+.hero-card {
+  position: absolute;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 48px rgba(28,13,10,.25), 0 0 0 1px rgba(255,255,255,.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .86rem;
+  z-index: 5;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hero-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+.hero-card-title { font-weight: 600; color: var(--dark); font-size: .95rem; }
+.hero-card-sub { color: var(--muted); font-size: .8rem; }
+
+.hero-map {
+  position: relative;
+  width: 100%; height: 100%;
+  min-height: 480px;
+  background: linear-gradient(135deg, var(--dark), #2E1B12);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.hero-map::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 45%, rgba(255,98,16,.3) 0%, transparent 30%),
+    radial-gradient(circle at 35% 70%, rgba(255,98,16,.25) 0%, transparent 25%),
+    radial-gradient(circle at 28% 30%, rgba(255,98,16,.2) 0%, transparent 20%);
+}
+.hero-map-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  color: var(--white);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero-map-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.15rem; color: #FFFFFF; }
+.hero-map-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(255,98,16,.2);
+  border-radius: 50px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #FFB17A;
+  margin-bottom: 12px;
+}
+.hero-map-live::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%; background: #00D084;
+  animation: pulse 1.5s infinite;
+}
+.hero-map-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+  padding-right: 80px;
+}
+.hero-map-item {
+  padding: 10px 12px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+}
+.hero-map-item-flag { font-size: 1.2rem; margin-bottom: 2px; }
+.hero-map-item-name { font-size: .78rem; font-weight: 600; color: #FFFFFF; }
+.hero-map-item-stat { font-size: .68rem; color: rgba(255,255,255,.6); margin-top: 1px; }
+
+.card-float-1 { top: 24px; right: -20px; }
+.card-float-2 { bottom: -24px; left: 40px; animation-delay: -2s; }
+.card-float-3 { top: 46%; right: -28px; animation-delay: -4s; }
+
+/* ============ STATS BAR ============ */
+.stats {
+  background: var(--dark);
+  color: var(--white);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255,98,16,.08) 50%, transparent),
+    radial-gradient(circle at 80% 50%, rgba(255,98,16,.15), transparent 50%);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+.stat { text-align: center; }
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.stat-label {
+  font-size: .92rem;
+  color: rgba(255,255,255,.7);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ============ SERVICES ============ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.service-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(28,13,10,.06);
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-deeper));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  margin-bottom: 24px;
+}
+.service-card h3 { margin-bottom: 14px; }
+.service-card p { color: var(--muted); margin-bottom: 24px; }
+
+.service-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.feature-chip {
+  padding: 6px 12px;
+  background: var(--cream);
+  border-radius: 50px;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+.service-coverage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(28,13,10,.12);
+  font-size: .85rem;
+  color: var(--muted);
+}
+.service-coverage strong { color: var(--orange-deeper); }
+
+/* ============ NOSOTROS ============ */
+.nosotros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.nosotros-visual {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+.nosotros-image {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deeper));
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.nosotros-image::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.2), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(20,11,6,.3), transparent 50%);
+}
+.nosotros-image-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px;
+  color: var(--white);
+}
+.nosotros-image-text .big {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(4rem, 8vw, 6rem);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -.03em;
+}
+.nosotros-image-text p { font-size: 1.1rem; font-weight: 500; max-width: 300px; }
+
+.nosotros-badge {
+  position: absolute;
+  top: 30px; right: -30px;
+  background: var(--white);
+  padding: 20px 28px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nosotros-badge-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+}
+.nosotros-badge strong { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: var(--dark); }
+.nosotros-badge span { font-size: .78rem; color: var(--muted); display: block; }
+
+.nosotros-content p { color: var(--muted); margin-bottom: 20px; font-size: 1.05rem; }
+.nosotros-list {
+  list-style: none;
+  margin: 32px 0;
+}
+.nosotros-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(28,13,10,.06);
+}
+.nosotros-list li:last-child { border-bottom: none; }
+.nosotros-list .check {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255,98,16,.12);
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.nosotros-list strong { display: block; color: var(--dark); font-family: 'Poppins', sans-serif; font-weight: 600; }
+.nosotros-list span { color: var(--muted); font-size: .92rem; }
+
+/* ============ COBERTURA ============ */
+.cobertura-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+  align-items: end;
+}
+.cobertura-head h2 { color: var(--white); }
+.cobertura-head p { color: #D9C9C0; font-size: 1.1rem; margin-top: 16px; max-width: 520px; }
+.cobertura-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .88rem;
+  color: #D9C9C0;
+}
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+.legend-dot.full { background: var(--orange); box-shadow: 0 0 0 4px rgba(255,98,16,.2); }
+.legend-dot.partial { background: #FFB17A; }
+
+.cobertura-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cobertura-tab {
+  padding: 10px 22px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50px;
+  color: #E5D7D1;
+  font-size: .88rem;
+  font-weight: 500;
+  transition: all .2s ease;
+}
+.cobertura-tab:hover { background: rgba(255,255,255,.1); }
+.cobertura-tab.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.country-card {
+  padding: 28px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  transition: all .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.country-card:hover {
+  background: rgba(255,255,255,.08);
+  transform: translateY(-4px);
+  border-color: rgba(255,98,16,.4);
+}
+.country-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.country-name { display: flex; align-items: center; gap: 10px; }
+.country-flag { font-size: 1.8rem; }
+.country-name strong { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--white); }
+.country-badge {
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.country-badge.full { background: var(--orange); color: var(--white); }
+.country-badge.partial { background: rgba(255,177,122,.18); color: #FFB17A; border: 1px solid rgba(255,177,122,.3); }
+
+.country-services { list-style: none; }
+.country-services li {
+  font-size: .82rem;
+  color: #D9C9C0;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.country-services li svg { color: var(--orange); flex-shrink: 0; }
+
+/* ============ CASOS DE ÉXITO ============ */
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.case-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(28,13,10,.06);
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.case-header {
+  padding: 32px 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.case-logo {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--orange-deeper);
+}
+.case-sector {
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.case-body { padding: 24px 32px 0; flex: 1; }
+.case-body h3 { margin-bottom: 14px; font-size: 1.25rem; }
+.case-body p { color: var(--muted); font-size: .95rem; }
+
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 24px 32px;
+  background: var(--light);
+  margin-top: 24px;
+  border-top: 1px solid rgba(28,13,10,.06);
+}
+.case-metric-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+}
+.case-metric-label {
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ============ TESTIMONIOS ============ */
+.testimonials {
+  background: var(--cream);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.testimonial {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 20px; right: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 6rem;
+  color: rgba(255,98,16,.1);
+  line-height: 1;
+  font-weight: 800;
+}
+.testimonial-stars {
+  color: var(--orange);
+  margin-bottom: 18px;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+.testimonial-quote {
+  font-size: 1.1rem;
+  color: var(--dark);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.testimonial-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deeper));
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.testimonial-author strong { display: block; color: var(--dark); font-family: 'Poppins', sans-serif; font-weight: 600; }
+.testimonial-author span { color: var(--muted); font-size: .88rem; }
+
+/* ============ BLOG ============ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 24px;
+}
+.post-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(28,13,10,.06);
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.post-image {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--orange), var(--orange-deeper));
+  position: relative;
+  overflow: hidden;
+}
+.post-card.featured .post-image { aspect-ratio: 16 / 9; }
+.post-image::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.15), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(20,11,6,.3), transparent 50%);
+}
+.post-image.green { background: linear-gradient(135deg, #0B5C3E, #14845B); }
+.post-image.blue { background: linear-gradient(135deg, #0E3B5C, #1864A3); }
+.post-tag {
+  position: absolute;
+  top: 16px; left: 16px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,.94);
+  border-radius: 50px;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.post-body { padding: 24px 28px; flex: 1; display: flex; flex-direction: column; }
+.post-meta { display: flex; gap: 14px; font-size: .78rem; color: var(--muted); margin-bottom: 12px; }
+.post-card h3 { font-size: 1.15rem; margin-bottom: 12px; transition: color .2s ease; }
+.post-card.featured h3 { font-size: 1.5rem; }
+.post-card:hover h3 { color: var(--orange); }
+.post-body p { color: var(--muted); font-size: .9rem; margin-bottom: 16px; flex: 1; }
+.post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange);
+  font-weight: 600;
+  font-size: .88rem;
+}
+.post-link svg { transition: transform .2s ease; }
+.post-card:hover .post-link svg { transform: translateX(4px); }
+
+/* ============ PORTAL CLIENTES ============ */
+.portal {
+  background:
+    linear-gradient(135deg, rgba(28,13,10,.95), rgba(28,13,10,.85)),
+    radial-gradient(circle at 20% 80%, rgba(255,98,16,.3), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(241,88,8,.2), transparent 50%),
+    var(--dark);
+  color: var(--white);
+}
+.portal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.portal h2 { color: var(--white); }
+.portal p { color: #D9C9C0; font-size: 1.05rem; margin-bottom: 32px; }
+.portal-features {
+  list-style: none;
+  margin-bottom: 36px;
+}
+.portal-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.portal-features .icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,98,16,.15);
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.portal-features strong { display: block; color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 2px; }
+.portal-features span { color: #D9C9C0; font-size: .9rem; }
+
+.portal-mockup {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lg);
+}
+.mockup-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 20px;
+}
+.mockup-dot-row { display: flex; gap: 6px; }
+.mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.2); }
+.mockup-dot:nth-child(1) { background: #FF5F56; }
+.mockup-dot:nth-child(2) { background: #FFBD2E; }
+.mockup-dot:nth-child(3) { background: #27C93F; }
+.mockup-url { font-size: .75rem; color: #B8A9A1; }
+.mockup-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.kpi {
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  padding: 14px;
+}
+.kpi-label { font-size: .7rem; color: #B8A9A1; margin-bottom: 4px; }
+.kpi-value { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--white); }
+.kpi-delta { font-size: .7rem; color: #00D084; margin-top: 2px; }
+.kpi-delta.neg { color: #FF8A65; }
+.mockup-chart {
+  height: 130px;
+  position: relative;
+  padding: 12px;
+  background: rgba(255,255,255,.03);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.bar-row {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+  align-items: flex-end;
+}
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg, var(--orange), var(--orange-deeper));
+  border-radius: 4px 4px 0 0;
+  min-height: 8px;
+  opacity: .85;
+}
+.mockup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mockup-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255,255,255,.03);
+  border-radius: 10px;
+  font-size: .82rem;
+}
+.mockup-list-item span { color: #D9C9C0; }
+.mockup-list-item .status {
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: .7rem;
+  font-weight: 600;
+}
+.status.delivered { background: rgba(0,208,132,.2); color: #00D084; }
+.status.transit { background: rgba(255,177,122,.2); color: #FFB17A; }
+.status.pending { background: rgba(185,160,150,.2); color: #B8A9A1; }
+
+/* ============ CONTACTO ============ */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+.contacto-info h2 { margin-bottom: 16px; }
+.contacto-info p { color: var(--muted); margin-bottom: 40px; font-size: 1.05rem; }
+.contacto-channels { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid rgba(28,13,10,.06);
+  transition: all .25s ease;
+}
+.channel:hover {
+  border-color: var(--orange);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+.channel-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.channel-label { font-size: .8rem; color: var(--muted); }
+.channel-value { font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--dark); font-size: 1.02rem; }
+
+.contacto-form {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(28,13,10,.06);
+  box-shadow: var(--shadow-md);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid rgba(28,13,10,.1);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: .95rem;
+  color: var(--dark);
+  background: var(--white);
+  transition: all .2s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(255,98,16,.12);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .82rem;
+  color: var(--muted);
+  margin: 12px 0 24px;
+}
+.form-consent input { width: auto; margin-top: 3px; }
+.form-consent a { color: var(--orange); font-weight: 500; }
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* ============ CTA BANNER ============ */
+.cta-banner {
+  background: linear-gradient(135deg, var(--orange), var(--orange-deeper));
+  padding: 80px 0;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,.15), transparent 60%);
+  border-radius: 50%;
+}
+.cta-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.cta-banner h2 { color: var(--white); max-width: 720px; }
+.cta-banner p { color: rgba(255,255,255,.9); margin-top: 10px; font-size: 1.05rem; }
+.cta-banner-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--dark-2);
+  color: #D9C9C0;
+  padding: 80px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-col h4 {
+  font-size: .85rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.footer-col p { font-size: .9rem; line-height: 1.6; margin-bottom: 20px; color: #B8A9A1; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-col ul a { font-size: .92rem; color: #D9C9C0; }
+.footer-col ul a:hover { color: var(--orange); }
+
+.footer-newsletter { display: flex; gap: 8px; }
+.footer-newsletter input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.04);
+  border-radius: 10px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: .88rem;
+}
+.footer-newsletter input:focus { outline: none; border-color: var(--orange); }
+.footer-newsletter button {
+  padding: 12px 20px;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .88rem;
+  transition: background .2s ease;
+}
+.footer-newsletter button:hover { background: var(--orange-dark); }
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.social-btn {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.05);
+  display: grid;
+  place-items: center;
+  color: #D9C9C0;
+  transition: all .2s ease;
+}
+.social-btn:hover { background: var(--orange); color: var(--white); transform: translateY(-2px); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: .82rem;
+  color: #998A82;
+}
+.footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+/* ============ FLOATING WHATSAPP ============ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 60px; height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  box-shadow: 0 10px 30px rgba(37,211,102,.4);
+  z-index: 99;
+  transition: all .25s ease;
+  animation: pulseWA 2.5s infinite;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+@keyframes pulseWA {
+  0%, 100% { box-shadow: 0 10px 30px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.5); }
+  50% { box-shadow: 0 10px 30px rgba(37,211,102,.4), 0 0 0 20px rgba(37,211,102,0); }
+}
+
+/* ============ ANIMATIONS ============ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .hero-grid, .nosotros, .portal-grid, .contacto-grid, .cobertura-intro { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { min-height: 400px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .cases-grid { grid-template-columns: 1fr 1fr; }
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .section { padding: 70px 0; }
+  .nav-links, .nav-cta .btn-cta { display: none; }
+  .menu-toggle { display: flex; }
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--white);
+    padding: 20px 24px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(28,13,10,.06);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-links.mobile-open a { font-size: 1rem; padding: 8px 0; }
+  .hero { padding: 130px 0 70px; }
+  .hero-visual { min-height: 0; }
+  .hero-map { min-height: 420px; }
+  .hero-map-grid { grid-template-columns: repeat(2, 1fr); padding-right: 0; }
+  .card-float-1 { top: 16px; right: 8px; }
+  .card-float-3 { top: auto; bottom: 30px; right: 8px; }
+  .card-float-2 { bottom: -18px; left: 12px; }
+  .cases-grid, .blog-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .nosotros-badge { right: 20px; top: 20px; padding: 14px 18px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta-banner-inner { flex-direction: column; align-items: flex-start; }
+  .footer-bottom { justify-content: center; text-align: center; flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <nav class="nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">R</span>
+      <span>
+        RECSA
+        <span class="logo-sub">Distribución</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#cobertura">Cobertura</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#casos">Casos</a></li>
+      <li><a href="#blog">Recursos</a></li>
+      <li><a href="#portal">Portal Clientes</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contacto" class="btn btn-primary btn-cta">Solicitar cotización <span class="arrow">→</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="hero-eyebrow"><span class="dot"></span> Unidad del Grupo RECSA · operando en LATAM desde 2008</span>
+        <h1>Llegamos donde tu <span class="accent">cliente final</span> está: entrega física y operación comercial en LATAM</h1>
+        <p class="hero-sub">Distribución de última milla a nivel nacional en Chile integrada con operaciones de contact center, televentas y marketing digital que cubren seis mercados de la región. Un mismo aliado para el mundo físico y el digital.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Solicitar cotización <span class="arrow">→</span></a>
+          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            SLA contractual desde el piloto
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Dashboard en vivo 24/7
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Integración vía API
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-map">
+          <div class="hero-map-content">
+            <div>
+              <span class="hero-map-live">Sistema activo</span>
+              <div class="hero-map-title">Hubs operativos por país</div>
+            </div>
+            <div class="hero-map-grid">
+              <div class="hero-map-item">
+                <div class="hero-map-item-flag">🇨🇱</div>
+                <div class="hero-map-item-name">Chile</div>
+                <div class="hero-map-item-stat">Última milla · CC</div>
+              </div>
+              <div class="hero-map-item">
+                <div class="hero-map-item-flag">🇵🇪</div>
+                <div class="hero-map-item-name">Perú</div>
+                <div class="hero-map-item-stat">Contact Center</div>
+              </div>
+              <div class="hero-map-item">
+                <div class="hero-map-item-flag">🇨🇴</div>
+                <div class="hero-map-item-name">Colombia</div>
+                <div class="hero-map-item-stat">Contact Center</div>
+              </div>
+              <div class="hero-map-item">
+                <div class="hero-map-item-flag">🇦🇷</div>
+                <div class="hero-map-item-name">Argentina</div>
+                <div class="hero-map-item-stat">Contact Center</div>
+              </div>
+              <div class="hero-map-item">
+                <div class="hero-map-item-flag">🇪🇨</div>
+                <div class="hero-map-item-name">Ecuador</div>
+                <div class="hero-map-item-stat">Contact Center</div>
+              </div>
+              <div class="hero-map-item">
+                <div class="hero-map-item-flag">🇺🇾</div>
+                <div class="hero-map-item-name">Uruguay</div>
+                <div class="hero-map-item-stat">Contact Center</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card card-float-1">
+          <div class="hero-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M4 4l5 5"/></svg>
+          </div>
+          <div>
+            <div class="hero-card-title">+50K gestiones</div>
+            <div class="hero-card-sub">procesadas al mes</div>
+          </div>
+        </div>
+        <div class="hero-card card-float-2">
+          <div class="hero-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="hero-card-title">24/7 Operación</div>
+            <div class="hero-card-sub">Contact Center</div>
+          </div>
+        </div>
+        <div class="hero-card card-float-3">
+          <div class="hero-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div class="hero-card-title">Visibilidad total</div>
+            <div class="hero-card-sub">de cada gestión</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat fade-up">
+        <div class="stat-number" data-count="6">0</div>
+        <div class="stat-label">Mercados activos</div>
+      </div>
+      <div class="stat fade-up">
+        <div class="stat-number" data-count="17" data-suffix="+">0</div>
+        <div class="stat-label">Años operando la región</div>
+      </div>
+      <div class="stat fade-up">
+        <div class="stat-number" data-count="97" data-suffix="%">0</div>
+        <div class="stat-label">Cumplimiento de SLA</div>
+      </div>
+      <div class="stat fade-up">
+        <div class="stat-number" data-count="50" data-suffix="K+">0</div>
+        <div class="stat-label">Gestiones al mes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="section" id="servicios">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Qué hacemos</span>
+      <h2>Cuatro capacidades que conversan entre sí</h2>
+      <p>Cada línea funciona por separado o como parte de un mismo flujo de trabajo. Tú decides si necesitas una pieza puntual o una operación end-to-end que conecte el pedido, la entrega y la post-venta.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Última milla multiproducto en Chile</h3>
+        <p>Despacho domiciliario de alto volumen a lo largo de todo el país, desde productos financieros y farmacéuticos hasta retail y SKUs delicados. Diseñamos el protocolo de validación contigo: biometría, firma, fotografía en sitio o lo que tu operación requiera.</p>
+        <div class="service-features">
+          <span class="feature-chip">Cobertura nacional</span>
+          <span class="feature-chip">Protocolos flexibles</span>
+          <span class="feature-chip">Agilidad ante cambios</span>
+          <span class="feature-chip">Trazabilidad en línea</span>
+        </div>
+        <div class="service-coverage">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Cobertura: <strong>Chile (todo el país)</strong></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <h3>Contact center multicanal 24/7</h3>
+        <p>Equipos dedicados que atienden por voz, chat, email, WhatsApp y redes sociales bajo un mismo estándar de calidad. Dimensionamos la operación según tus picos, idiomas y niveles de servicio.</p>
+        <div class="service-features">
+          <span class="feature-chip">Multicanal</span>
+          <span class="feature-chip">Voz · Chat · Digital</span>
+          <span class="feature-chip">KPIs en tiempo real</span>
+          <span class="feature-chip">Alta flexibilidad</span>
+        </div>
+        <div class="service-coverage">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span>Cobertura: <strong>LATAM regional</strong></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Televentas inbound y outbound</h3>
+        <p>Agentes entrenados para vender tu producto, no solo para leer un guión. Trabajamos con tus bases o con data de prospección propia, segmentamos por propensión y reportamos conversión, ticket promedio y rentabilidad por campaña.</p>
+        <div class="service-features">
+          <span class="feature-chip">Inbound</span>
+          <span class="feature-chip">Outbound</span>
+          <span class="feature-chip">Seguimiento conversión</span>
+          <span class="feature-chip">Tipificación</span>
+        </div>
+        <div class="service-coverage">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span>Cobertura: <strong>LATAM regional</strong></span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 12l4-4 4 4 6-6"/></svg>
+        </div>
+        <h3>Marketing digital performance</h3>
+        <p>Pauta en Meta, Google y LinkedIn conectada directamente al equipo comercial que cierra. Dashboards por etapa del funnel, nutrición automatizada y foco en costo por cliente adquirido, no en vanity metrics.</p>
+        <div class="service-features">
+          <span class="feature-chip">Automatización</span>
+          <span class="feature-chip">Reportería por etapa</span>
+          <span class="feature-chip">Nutrición de leads</span>
+          <span class="feature-chip">Embudo conversión</span>
+        </div>
+        <div class="service-coverage">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <span>Cobertura: <strong>LATAM regional</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOSOTROS ============ -->
+<section class="section section-cream" id="nosotros">
+  <div class="container">
+    <div class="nosotros">
+      <div class="nosotros-visual fade-up">
+        <div class="nosotros-image">
+          <div class="nosotros-image-text">
+            <div class="big">+18</div>
+            <p>años de experiencia operando en Latinoamérica como parte del Grupo RECSA.</p>
+          </div>
+        </div>
+        <div class="nosotros-badge">
+          <div class="nosotros-badge-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <strong>Empresa verificada</strong>
+            <span>Grupo RECSA · LATAM</span>
+          </div>
+        </div>
+      </div>
+      <div class="nosotros-content fade-up">
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Una sola operación que conecta el mundo físico y el digital</h2>
+        <p>Recsa Distribución forma parte del Grupo RECSA, una organización de servicios con casi dos décadas de experiencia en Latinoamérica y presencia directa en seis países. Desde Chile operamos la unidad enfocada en logística y relacionamiento con clientes finales.</p>
+        <p>Nuestro diferencial es unir la última milla con el contacto digital bajo un mismo equipo: el mismo partner que reparte tu producto puede atender la llamada, cerrar la venta y nutrir el lead. Menos proveedores, más trazabilidad.</p>
+        <ul class="nosotros-list">
+          <li>
+            <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div>
+              <strong>Alta flexibilidad operativa</strong>
+              <span>Nos adaptamos rápidamente a nuevos procesos o cambios en los existentes.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div>
+              <strong>Integración física + digital</strong>
+              <span>Combinamos última milla con contact center, ventas y marketing digital.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div>
+              <strong>Reporting en tiempo real</strong>
+              <span>Trazabilidad total y KPIs accesibles desde nuestro portal para clientes.</span>
+            </div>
+          </li>
+          <li>
+            <span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div>
+              <strong>Protocolos adaptados</strong>
+              <span>Procesos de validación personalizados según las necesidades de cada cliente.</span>
+            </div>
+          </li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Hablemos de tu operación <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COBERTURA ============ -->
+<section class="section section-dark" id="cobertura">
+  <div class="container">
+    <div class="cobertura-intro fade-up">
+      <div class="cobertura-head">
+        <span class="eyebrow">Dónde operamos</span>
+        <h2>Seis mercados, un mismo estándar</h2>
+        <p>La última milla corre en Chile con alcance nacional. Las líneas digitales —contact center, televentas y marketing performance— se activan desde hubs regionales que sirven a Chile, Colombia, Perú, Ecuador, Argentina y Uruguay.</p>
+      </div>
+      <div class="cobertura-legend">
+        <div class="legend-item">
+          <span class="legend-dot full"></span> Operación completa (última milla + digital)
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot partial"></span> Servicios digitales (CC, ventas, marketing)
+        </div>
+      </div>
+    </div>
+
+    <div class="cobertura-tabs" role="tablist">
+      <button class="cobertura-tab active" data-filter="all">Todos los países</button>
+      <button class="cobertura-tab" data-filter="full">Operación completa</button>
+      <button class="cobertura-tab" data-filter="partial">Servicios digitales</button>
+    </div>
+
+    <div class="countries-grid" id="countriesGrid">
+      <div class="country-card" data-type="full">
+        <div class="country-header">
+          <div class="country-name"><span class="country-flag">🇨🇱</span><strong>Chile</strong></div>
+          <span class="country-badge full">Completo</span>
+        </div>
+        <ul class="country-services">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Última milla (cobertura total)</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Atención al cliente</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ventas inbound / outbound</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Marketing digital</li>
+        </ul>
+      </div>
+      <div class="country-card" data-type="partial">
+        <div class="country-header">
+          <div class="country-name"><span class="country-flag">🇨🇴</span><strong>Colombia</strong></div>
+          <span class="country-badge partial">Digital</span>
+        </div>
+        <ul class="country-services">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Atención al cliente</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ventas inbound / outbound</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Marketing digital</li>
+        </ul>
+      </div>
+      <div class="country-card" data-type="partial">
+        <div class="country-header">
+          <div class="country-name"><span class="country-flag">🇵🇪</span><strong>Perú</strong></div>
+          <span class="country-badge partial">Digital</span>
+        </div>
+        <ul class="country-services">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Atención al cliente</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ventas inbound / outbound</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Marketing digital</li>
+        </ul>
+      </div>
+      <div class="country-card" data-type="partial">
+        <div class="country-header">
+          <div class="country-name"><span class="country-flag">🇪🇨</span><strong>Ecuador</strong></div>
+          <span class="country-badge partial">Digital</span>
+        </div>
+        <ul class="country-services">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Atención al cliente</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ventas inbound / outbound</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Marketing digital</li>
+        </ul>
+      </div>
+      <div class="country-card" data-type="partial">
+        <div class="country-header">
+          <div class="country-name"><span class="country-flag">🇦🇷</span><strong>Argentina</strong></div>
+          <span class="country-badge partial">Digital</span>
+        </div>
+        <ul class="country-services">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Atención al cliente</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ventas inbound / outbound</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Marketing digital</li>
+        </ul>
+      </div>
+      <div class="country-card" data-type="partial">
+        <div class="country-header">
+          <div class="country-name"><span class="country-flag">🇺🇾</span><strong>Uruguay</strong></div>
+          <span class="country-badge partial">Digital</span>
+        </div>
+        <ul class="country-services">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Atención al cliente</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ventas inbound / outbound</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Marketing digital</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASOS DE ÉXITO ============ -->
+<section class="section" id="casos">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">En terreno</span>
+      <h2>Tres operaciones, tres resultados</h2>
+      <p>Ejemplos reales de cómo combinamos última milla, contact center o performance digital para resolver desafíos concretos.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card fade-up">
+        <div class="case-header">
+          <div class="case-logo">FS</div>
+          <span class="case-sector">Servicios financieros</span>
+        </div>
+        <div class="case-body">
+          <h3>Entrega nacional de tarjetas de crédito</h3>
+          <p>Implementamos protocolos de validación con reconocimiento biométrico y firma digital en +800 comunas de Chile, con reporte en tiempo real al back-office del cliente.</p>
+        </div>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-value">98.4%</div>
+            <div class="case-metric-label">Entregas efectivas</div>
+          </div>
+          <div>
+            <div class="case-metric-value">24h</div>
+            <div class="case-metric-label">SLA promedio</div>
+          </div>
+          <div>
+            <div class="case-metric-value">+40%</div>
+            <div class="case-metric-label">Reducción rechazos</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-header">
+          <div class="case-logo">RT</div>
+          <span class="case-sector">Retail y E-commerce</span>
+        </div>
+        <div class="case-body">
+          <h3>Contact center omnicanal para retailer regional</h3>
+          <p>Operación 24/7 en tres países, integrando voz, chat y redes sociales con CRM del cliente. Tipificación unificada y reportería consolidada por mercado.</p>
+        </div>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-value">3</div>
+            <div class="case-metric-label">Países simultáneos</div>
+          </div>
+          <div>
+            <div class="case-metric-value">&lt;30s</div>
+            <div class="case-metric-label">Tiempo de respuesta</div>
+          </div>
+          <div>
+            <div class="case-metric-value">+65%</div>
+            <div class="case-metric-label">CSAT vs. baseline</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card fade-up">
+        <div class="case-header">
+          <div class="case-logo">TC</div>
+          <span class="case-sector">Telecomunicaciones</span>
+        </div>
+        <div class="case-body">
+          <h3>Conversión de leads con embudo digital</h3>
+          <p>Marketing digital con automatización, nutrición por email y SMS, más equipo outbound dedicado para cerrar conversiones. Reportería por etapa del funnel.</p>
+        </div>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-value">3.8x</div>
+            <div class="case-metric-label">Retorno sobre inversión</div>
+          </div>
+          <div>
+            <div class="case-metric-value">22%</div>
+            <div class="case-metric-label">Tasa de conversión</div>
+          </div>
+          <div>
+            <div class="case-metric-value">+12K</div>
+            <div class="case-metric-label">Leads gestionados/mes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Voces de clientes</span>
+      <h2>Lo que nos dicen quienes ya operan con nosotros</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Levantamos la operación de contact center omnicanal en menos de tres semanas. La integración con nuestro CRM fue más fluida de lo que esperábamos y hoy medimos cada interacción con tipificación unificada."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MC</div>
+          <div>
+            <strong>María José Contreras</strong>
+            <span>Subgerente de Experiencia Cliente · Retail omnicanal · Concepción</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Dejamos de ver marketing y televentas como silos separados. Con el embudo integrado el costo por lead calificado bajó 31% en dos trimestres y la conversión del equipo outbound creció de forma sostenida."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DR</div>
+          <div>
+            <strong>Diego Ramírez</strong>
+            <span>Head of Growth · Plataforma SaaS regional · Medellín, Colombia</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Los protocolos de validación para productos sensibles fueron diseñados exactamente a nuestra medida. Reducimos incidencias de entrega casi a la mitad y el reporte diario llega antes de que lo pidamos."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PS</div>
+          <div>
+            <strong>Paula Saavedra</strong>
+            <span>Directora de Supply Chain · Laboratorio farmacéutico · Santiago</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Escalamos la atención 24/7 en cuatro países sin perder consistencia de marca. Los dashboards por mercado nos permiten tomar decisiones diarias, no mensuales. Aliado estratégico, no solo un proveedor."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">FM</div>
+          <div>
+            <strong>Francisco Mendoza</strong>
+            <span>VP Customer Operations · Telco regional · Lima, Perú</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTAL CLIENTES ============ -->
+<section class="section portal" id="portal">
+  <div class="container">
+    <div class="portal-grid">
+      <div class="fade-up">
+        <span class="eyebrow">Portal de clientes</span>
+        <h2>Tu operación, siempre visible</h2>
+        <p>Un panel de control en vivo para que tu equipo supervise entregas, campañas y KPIs. Datos consolidados, accesos por rol y reportes exportables cuando los necesites.</p>
+        <ul class="portal-features">
+          <li>
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </span>
+            <div>
+              <strong>Dashboard en tiempo real</strong>
+              <span>Entregas, SLA, tipificación y volumen por canal actualizados al minuto.</span>
+            </div>
+          </li>
+          <li>
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </span>
+            <div>
+              <strong>Tickets y alertas</strong>
+              <span>Notificaciones automáticas ante incidencias o desviaciones de SLA.</span>
+            </div>
+          </li>
+          <li>
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <div>
+              <strong>Trazabilidad 360°</strong>
+              <span>Seguimiento por guía, cliente final, canal, campaña o país.</span>
+            </div>
+          </li>
+          <li>
+            <span class="icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+            </span>
+            <div>
+              <strong>Exportes y API</strong>
+              <span>Descarga en CSV/Excel o integración vía API REST con tus sistemas.</span>
+            </div>
+          </li>
+        </ul>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#contacto" class="btn btn-primary">Solicitar acceso <span class="arrow">→</span></a>
+          <a href="#contacto" class="btn btn-outline-light">Ver demo</a>
+        </div>
+      </div>
+      <div class="portal-mockup fade-up">
+        <div class="mockup-top">
+          <div class="mockup-dot-row"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+          <div class="mockup-url">portal.recsadistribucion.com</div>
+          <div style="font-size:.72rem;color:#B8A9A1;">● Online</div>
+        </div>
+        <div class="mockup-kpis">
+          <div class="kpi">
+            <div class="kpi-label">Entregas hoy</div>
+            <div class="kpi-value">2.148</div>
+            <div class="kpi-delta">▲ 8.4%</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">SLA cumplido</div>
+            <div class="kpi-value">97.2%</div>
+            <div class="kpi-delta">▲ 1.1%</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Incidencias</div>
+            <div class="kpi-value">14</div>
+            <div class="kpi-delta neg">▼ 22%</div>
+          </div>
+        </div>
+        <div class="mockup-chart">
+          <div class="bar-row">
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:62%"></div>
+            <div class="bar" style="height:38%"></div>
+            <div class="bar" style="height:78%"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:88%"></div>
+            <div class="bar" style="height:72%"></div>
+            <div class="bar" style="height:95%"></div>
+            <div class="bar" style="height:68%"></div>
+            <div class="bar" style="height:82%"></div>
+            <div class="bar" style="height:75%"></div>
+            <div class="bar" style="height:90%"></div>
+          </div>
+        </div>
+        <div class="mockup-list">
+          <div class="mockup-list-item">
+            <span>Guía #RD-089432 · Santiago</span>
+            <span class="status delivered">Entregada</span>
+          </div>
+          <div class="mockup-list-item">
+            <span>Guía #RD-089431 · Valparaíso</span>
+            <span class="status transit">En tránsito</span>
+          </div>
+          <div class="mockup-list-item">
+            <span>Guía #RD-089430 · Concepción</span>
+            <span class="status pending">Programada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG / RECURSOS ============ -->
+<section class="section section-cream" id="blog">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Journal</span>
+      <h2>Aprendizajes de la operación diaria</h2>
+      <p>Lecturas cortas que escribimos con el equipo: lo que funciona, lo que no, y los patrones que encontramos en miles de entregas e interacciones al mes.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="post-card featured fade-up">
+        <div class="post-image">
+          <span class="post-tag">Última milla</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta">
+            <span>10 min lectura</span> · <span>12 Abr 2026</span>
+          </div>
+          <h3>Cómo diseñar protocolos de entrega para productos sensibles: guía práctica</h3>
+          <p>Validación de identidad, cadena de custodia y firma digital: los tres pilares que debes considerar al entregar productos financieros, farmacéuticos o de alto valor en Chile.</p>
+          <a href="#" class="post-link">Leer artículo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="post-card fade-up">
+        <div class="post-image green">
+          <span class="post-tag">Contact Center</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span>6 min</span> · <span>5 Abr 2026</span></div>
+          <h3>5 KPIs que toda operación omnicanal LATAM debería medir</h3>
+          <p>Más allá del CSAT: AHT, FCR, NPS post-interacción y más.</p>
+          <a href="#" class="post-link">Leer <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      <article class="post-card fade-up">
+        <div class="post-image blue">
+          <span class="post-tag">Marketing</span>
+        </div>
+        <div class="post-body">
+          <div class="post-meta"><span>8 min</span> · <span>28 Mar 2026</span></div>
+          <h3>Del clic al cierre: integrando marketing y televentas</h3>
+          <p>Buenas prácticas para que tus leads digitales no se pierdan en el embudo.</p>
+          <a href="#" class="post-link">Leer <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <div>
+        <h2>Si tu operación está creciendo, vale una conversación</h2>
+        <p>Te ayudamos a dimensionar, proyectar costos y proponer un piloto acotado. Sin compromiso y con devolución en un día hábil.</p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="#contacto" class="btn btn-light">Solicitar cotización <span class="arrow">→</span></a>
+        <a href="https://wa.me/56998245690" class="btn btn-outline-light" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info fade-up">
+        <span class="eyebrow">Conversemos</span>
+        <h2>Cuéntanos qué necesitas operar</h2>
+        <p>Un ejecutivo comercial revisa cada solicitud y devuelve una propuesta preliminar en menos de un día hábil. Si prefieres, escríbenos al correo o agenda por WhatsApp.</p>
+        <ul class="contacto-channels">
+          <li>
+            <a href="tel:+56998245690" class="channel">
+              <span class="channel-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              </span>
+              <div>
+                <div class="channel-label">Teléfono</div>
+                <div class="channel-value">+56 9 9824 5690</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:contacto@recsadistribucion.com" class="channel">
+              <span class="channel-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <div>
+                <div class="channel-label">Email</div>
+                <div class="channel-value">contacto@recsadistribucion.com</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="channel">
+              <span class="channel-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <div class="channel-label">Dirección</div>
+                <div class="channel-value">Huérfanos 812 entrepiso · Santiago, Chile</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="https://wa.me/56998245690" target="_blank" rel="noopener" class="channel">
+              <span class="channel-icon" style="background:rgba(37,211,102,.12);color:#25D366;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              </span>
+              <div>
+                <div class="channel-label">WhatsApp</div>
+                <div class="channel-value">Chatea con un ejecutivo</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <form class="contacto-form fade-up" id="contactForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellido" />
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa *</label>
+            <input type="text" id="empresa" name="empresa" required placeholder="Nombre de la empresa" />
+          </div>
+          <div class="form-group">
+            <label for="pais">País *</label>
+            <select id="pais" name="pais" required>
+              <option value="">Selecciona un país</option>
+              <option>Chile</option>
+              <option>Colombia</option>
+              <option>Perú</option>
+              <option>Ecuador</option>
+              <option>Argentina</option>
+              <option>Uruguay</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio de interés *</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona un servicio</option>
+              <option>Entrega última milla (Chile)</option>
+              <option>Atención al cliente (LATAM)</option>
+              <option>Ventas Inbound · Outbound</option>
+              <option>Marketing digital</option>
+              <option>Más de un servicio</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email">Email corporativo *</label>
+            <input type="email" id="email" name="email" required placeholder="tu@empresa.com" />
+          </div>
+          <div class="form-group">
+            <label for="celular">Celular de contacto *</label>
+            <input type="tel" id="celular" name="celular" required placeholder="+56 9 1234 5678" />
+          </div>
+          <div class="form-group full">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos sobre tu operación, volumen estimado y objetivos..."></textarea>
+          </div>
+        </div>
+        <div class="form-consent">
+          <input type="checkbox" id="consent" required />
+          <label for="consent">Acepto la <a href="#">Política de privacidad</a> y el tratamiento de mis datos para que me contacten.</label>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Enviar solicitud <span class="arrow">→</span></button>
+        <div id="formMsg" style="margin-top:16px;text-align:center;font-size:.92rem;"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo" style="color:#fff;margin-bottom:20px;">
+          <span class="logo-mark">R</span>
+          <span>RECSA<span class="logo-sub">Distribución</span></span>
+        </a>
+        <p>Unidad de distribución y BPO del Grupo RECSA. Operamos última milla en Chile y servicios de contact center, televentas y marketing performance en seis países de la región.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://wa.me/56998245690" class="social-btn" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Entrega última milla</a></li>
+          <li><a href="#servicios">Atención al cliente</a></li>
+          <li><a href="#servicios">Ventas in/outbound</a></li>
+          <li><a href="#servicios">Marketing digital</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#cobertura">Cobertura</a></li>
+          <li><a href="#casos">Casos de éxito</a></li>
+          <li><a href="#blog">Recursos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter operacional</h4>
+        <p>Casos prácticos, benchmarks de última milla y lecturas cortas sobre BPO en LATAM. Un envío al mes, sin spam.</p>
+        <form class="footer-newsletter" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ Suscrito';">
+          <input type="email" placeholder="tu@email.com" required />
+          <button type="submit">Suscribir</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Recsa Distribución · Todos los derechos reservados · RUT 76.008.893-5</div>
+      <div class="footer-bottom-links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Aviso legal</a>
+        <a href="#">Cookies</a>
+        <a href="#">Términos y condiciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOATING ============ -->
+<a href="https://wa.me/56998245690" class="whatsapp-float" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// ============ HEADER SCROLL ============
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+// ============ MOBILE MENU ============
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open');
+  navLinks.classList.toggle('mobile-open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  menuToggle.classList.remove('open');
+  navLinks.classList.remove('mobile-open');
+}));
+
+// ============ FADE UP ON SCROLL ============
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+// ============ ANIMATED COUNTERS ============
+const counters = document.querySelectorAll('.stat-number[data-count]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1500;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.floor(eased * target);
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    };
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.4 });
+counters.forEach(el => counterObserver.observe(el));
+
+// ============ COBERTURA FILTER ============
+const tabs = document.querySelectorAll('.cobertura-tab');
+const countries = document.querySelectorAll('.country-card');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    countries.forEach(c => {
+      if (filter === 'all' || c.dataset.type === filter) {
+        c.style.display = 'block';
+      } else {
+        c.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ============ CONTACT FORM ============
+const form = document.getElementById('contactForm');
+const formMsg = document.getElementById('formMsg');
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  formMsg.style.color = '#0B8B4B';
+  formMsg.textContent = '✓ Tu solicitud fue recibida. Te contactaremos en menos de 24 horas hábiles.';
+  form.reset();
+  setTimeout(() => { formMsg.textContent = ''; }, 6000);
+});
+</script>
+
+</body>
+</html>
